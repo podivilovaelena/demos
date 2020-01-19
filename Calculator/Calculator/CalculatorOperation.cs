@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Calculator
 {
-    public class CalculatorOperation
+    public class CalculatorOperation:ICalculatorOperation
     {
         public List<string> Operators = new List<string> {"(", ")", "+", "-", "*", "/"};
 

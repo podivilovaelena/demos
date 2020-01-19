@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Elena\\Documents\\Visual Studio 2019\\Calculator\\Calculator\\Calculator.csproj": {}
+    "C:\\Users\\Elena\\Documents\\GitHub\\demos\\Calculator\\Calculator\\Calculator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Elena\\Documents\\Visual Studio 2019\\Calculator\\Calculator\\Calculator.csproj": {
+    "C:\\Users\\Elena\\Documents\\GitHub\\demos\\Calculator\\Calculator\\Calculator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Elena\\Documents\\Visual Studio 2019\\Calculator\\Calculator\\Calculator.csproj",
+        "projectUniqueName": "C:\\Users\\Elena\\Documents\\GitHub\\demos\\Calculator\\Calculator\\Calculator.csproj",
         "projectName": "Calculator",
-        "projectPath": "C:\\Users\\Elena\\Documents\\Visual Studio 2019\\Calculator\\Calculator\\Calculator.csproj",
+        "projectPath": "C:\\Users\\Elena\\Documents\\GitHub\\demos\\Calculator\\Calculator\\Calculator.csproj",
         "packagesPath": "C:\\Users\\Elena\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Elena\\Documents\\Visual Studio 2019\\Calculator\\Calculator\\obj\\",
+        "outputPath": "C:\\Users\\Elena\\Documents\\GitHub\\demos\\Calculator\\Calculator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Elena\\AppData\\Roaming\\NuGet\\NuGet.Config",
