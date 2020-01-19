@@ -8,19 +8,19 @@ namespace Calculator
     {
         public List<string> Parse(string expression)
         {
-            int pos = 0;
+            int ind = 0;
             List<string> operators = new CalculatorOperation().Operators;
             List<string> parsedItems=new List<string>();
-            while (pos < expression.Length)
+            while (ind < expression.Length)
             {
-                string item = expression[pos].ToString();
-                if (!operators.Contains(expression[pos].ToString()))
+                string item = expression[ind].ToString();
+                if (!operators.Contains(expression[ind].ToString()))
                 {
-                        for (int i = pos + 1; i < expression.Length && (Char.IsDigit(expression[i]) || expression[i] == ',' || expression[i] == '.'); i++)
+                        for (int i = ind + 1; i < expression.Length && (Char.IsDigit(expression[i]) || expression[i] == ',' || expression[i] == '.'); i++)
                             item += expression[i];
                 }
                 parsedItems.Add(item);
-                pos += item.Length;
+                ind += item.Length;
             }
 
             return parsedItems;

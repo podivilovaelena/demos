@@ -18,24 +18,22 @@ namespace Calculator
                 {
                     if (operation.Operators.Contains(element))
                     {
-                        if (stack.Count > 0 && !element.Equals("("))
+                        if (stack.Count > 0 && element!="(")
                         {
-                            if (element.Equals(")"))
+                            if (element==")")
                             {
-                                string s = stack.Pop();
-                                while (s != "(")
+                                string stackOperator = stack.Pop();
+                                while (stackOperator != "(")
                                 {
-                                    result.Add(s);
-                                    s = stack.Pop();
+                                    result.Add(stackOperator);
+                                    stackOperator = stack.Pop();
                                 }
                             }
-                            else if (operation.GetOperationPriority(element) >
-                                     operation.GetOperationPriority(stack.Peek()))
+                            else if (operation.GetOperationPriority(element) > operation.GetOperationPriority(stack.Peek()))
                                 stack.Push(element);
                             else
                             {
-                                while (stack.Count > 0 && operation.GetOperationPriority(element) <=
-                                       operation.GetOperationPriority(stack.Peek()))
+                                while (stack.Count > 0&&operation.GetOperationPriority(element) <=operation.GetOperationPriority(stack.Peek()))
                                     result.Add(stack.Pop());
                                 stack.Push(element);
                             }
@@ -48,8 +46,8 @@ namespace Calculator
                 }
 
                 if (stack.Count > 0)
-                    foreach (string c in stack)
-                        result.Add(c);
+                    foreach (var element in stack)
+                        result.Add(element);
             }
             catch
             {
