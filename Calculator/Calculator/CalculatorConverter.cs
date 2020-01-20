@@ -18,9 +18,9 @@ namespace Calculator
                 {
                     if (operation.Operators.Contains(element))
                     {
-                        if (stack.Count > 0 && element!="(")
+                        if (stack.Count > 0 && element != "(")
                         {
-                            if (element==")")
+                            if (element == ")")
                             {
                                 string stackOperator = stack.Pop();
                                 while (stackOperator != "(")
@@ -29,11 +29,12 @@ namespace Calculator
                                     stackOperator = stack.Pop();
                                 }
                             }
-                            else if (operation.GetOperationPriority(element) > operation.GetOperationPriority(stack.Peek()))
+                            else if (operation.GetOperationPriority(element) >
+                                     operation.GetOperationPriority(stack.Peek()))
                                 stack.Push(element);
                             else
                             {
-                                while (stack.Count > 0&&operation.GetOperationPriority(element) <=operation.GetOperationPriority(stack.Peek()))
+                                while (stack.Count > 0 && operation.GetOperationPriority(element) <=operation.GetOperationPriority(stack.Peek()))
                                     result.Add(stack.Pop());
                                 stack.Push(element);
                             }
@@ -45,9 +46,8 @@ namespace Calculator
                         result.Add(element);
                 }
 
-                if (stack.Count > 0)
-                    foreach (var element in stack)
-                        result.Add(element);
+                foreach (var element in stack)
+                    result.Add(element);
             }
             catch
             {
