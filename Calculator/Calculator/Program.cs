@@ -8,7 +8,7 @@ namespace Calculator
         static void Main(string[] args)
         {
             string line = "";
-            Calculator calculator=new Calculator();
+            Calculator calculator=new Calculator(new CalculatorParser(), new CalculatorConverter(), new CalculatorOperation());
             while (true)
             {
                 try

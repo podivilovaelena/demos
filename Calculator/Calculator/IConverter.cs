@@ -6,6 +6,6 @@ namespace Calculator
 {
     interface IConverter
     {
-        List<string> Convert(string expression);
+        List<string> Convert(List<string> elements);
     }
 }

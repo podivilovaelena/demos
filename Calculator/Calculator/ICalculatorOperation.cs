@@ -6,8 +6,6 @@ namespace Calculator
 {
     interface ICalculatorOperation
     {
-        int GetOperationPriority(string operation);
-
-        double MakeOperation(string operation, double a, double b);
+        double PerformCalculation(List<string> elements);
     }
 }

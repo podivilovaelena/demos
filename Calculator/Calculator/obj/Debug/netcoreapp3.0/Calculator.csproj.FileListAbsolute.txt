@@ -15,7 +15,6 @@ C:\Users\Elena\Documents\GitHub\demos\Calculator\Calculator\bin\Debug\netcoreapp
 C:\Users\Elena\Documents\GitHub\demos\Calculator\Calculator\bin\Debug\netcoreapp3.0\Calculator.runtimeconfig.dev.json
 C:\Users\Elena\Documents\GitHub\demos\Calculator\Calculator\bin\Debug\netcoreapp3.0\Calculator.dll
 C:\Users\Elena\Documents\GitHub\demos\Calculator\Calculator\bin\Debug\netcoreapp3.0\Calculator.pdb
-C:\Users\Elena\Documents\GitHub\demos\Calculator\Calculator\obj\Debug\netcoreapp3.0\Calculator.csprojAssemblyReference.cache
 C:\Users\Elena\Documents\GitHub\demos\Calculator\Calculator\obj\Debug\netcoreapp3.0\Calculator.AssemblyInfoInputs.cache
 C:\Users\Elena\Documents\GitHub\demos\Calculator\Calculator\obj\Debug\netcoreapp3.0\Calculator.AssemblyInfo.cs
 C:\Users\Elena\Documents\GitHub\demos\Calculator\Calculator\obj\Debug\netcoreapp3.0\Calculator.dll

@@ -1,32 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace Calculator
 {
     public class CalculatorOperation:ICalculatorOperation
     {
-        public List<string> Operators = new List<string> {"(", ")", "+", "-", "*", "/"};
+        private readonly List<string> _operators = new List<string> { "(", ")", "+", "-", "*", "/" };
 
-        public int GetOperationPriority(string operation)
-        {
-            switch (operation)
-            {
-                case "(":
-                case ")":
-                    return 0;
-                case "+":
-                case "-":
-                    return 1;
-                case "*":
-                case "/":
-                    return 2;
-                default:
-                    return 3;
-            }
-        }
-
-        public double MakeOperation(string operation, double a, double b)
+        private double MakeOperation(string operation, double a, double b)
         {
 
                 double result=0;
@@ -55,6 +38,42 @@ namespace Calculator
                 }
 
                 return result;
+        }
+
+        public double PerformCalculation(List<string> elements)
+        {
+            Stack<double> stack = new Stack<double>();
+
+            foreach (var element in elements)
+            {
+                if (!_operators.Contains(element))
+                {
+                    try
+                    {
+                        stack.Push(double.Parse(element, CultureInfo.InvariantCulture));
+                    }
+                    catch
+                    {
+                        throw new FormatException("неверный формат");
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        double operationResult = MakeOperation(element,
+                            stack.Pop(), stack.Pop());
+                        stack.Push(operationResult);
+                    }
+                    catch
+                    {
+                        throw new FormatException("неверный формат");
+
+                    }
+                }
+            }
+
+            return stack.Pop();
         }
     }
 

@@ -12,26 +12,38 @@ namespace CalculatorTests
         public void ConvertTest1()
         {
             CalculatorConverter converter = new CalculatorConverter();
-            var actualResult = converter.Convert("(1+2)*4+3");
+            List<string> input=new List<string>{ "(","1","+","2",")","*", "4", "+", "3" };
+            var actualResult = converter.Convert(input);
             List<string> expectedResult = new List<string> { "1", "2", "+", "4", "*", "3", "+" };
             CollectionAssert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
-        public void ParseTest2()
+        public void ConvertTest2()
         {
             CalculatorConverter converter = new CalculatorConverter();
-            var actualResult = converter.Convert("(3.8-6.77)*(2.8+1)");
+            List<string> input = new List<string> { "(","3.8","-","6.77",")","*","(","2.8","+","1",")" };
+            var actualResult = converter.Convert(input);
             List<string> expectedResult = new List<string> { "3.8", "6.77", "-", "2.8", "1", "+", "*" };
             CollectionAssert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
-        public void ParseTest3()
+        public void ConvertTest3()
         {
             CalculatorConverter converter = new CalculatorConverter();
-            var actualResult = converter.Convert("5++6");
+            List<string> input = new List<string> { "5","+","+","6" };
+            var actualResult = converter.Convert(input);
             List<string> expectedResult = new List<string> { "5", "+","6",  "+" };
+            CollectionAssert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void ConvertTest4()
+        {
+            CalculatorConverter converter = new CalculatorConverter();
+            List<string> input = new List<string> { "-","5", "+", "6" };
+            var actualResult = converter.Convert(input);
+            List<string> expectedResult = new List<string> { "0","5", "-", "6", "+" };
             CollectionAssert.AreEqual(expectedResult, actualResult);
         }
     }

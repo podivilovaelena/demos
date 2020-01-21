@@ -6,43 +6,22 @@ using System.Text;
 
 namespace Calculator
 {
-    public class Calculator:ICalculator
+    public class Calculator
     {
+        private readonly IParser _parser;
+        private readonly IConverter _converter;
+        private readonly ICalculatorOperation _calculatorOperation;
+
+        public Calculator(CalculatorParser parser, CalculatorConverter converter,
+            CalculatorOperation calculatorOperation)
+        {
+            _parser = parser;
+            _converter = converter;
+            _calculatorOperation = calculatorOperation;
+        }
         public double Calculate(string expression)
         {
-            Stack<double> stack = new Stack<double>();
-            List<string> elements = new CalculatorConverter().Convert(expression);
-            CalculatorOperation operation = new CalculatorOperation();
-            foreach (var element in elements)
-            {
-                if (!operation.Operators.Contains(element))
-                {
-                    try
-                    {
-                        stack.Push(double.Parse(element, CultureInfo.InvariantCulture));
-                    }
-                    catch
-                    {
-                        throw new FormatException("неверный формат");
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        double operationResult = operation.MakeOperation(element,
-                            stack.Pop(), stack.Pop());
-                        stack.Push(operationResult);
-                    }
-                    catch
-                    {
-                        throw new FormatException("неверный формат");
-
-                    }
-                }
-            }
-
-            return stack.Pop();
+            return _calculatorOperation.PerformCalculation(_converter.Convert(_parser.Parse(expression)));
         }
     }
 }

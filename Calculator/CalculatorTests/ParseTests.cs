@@ -26,5 +26,23 @@ namespace CalculatorTests
             CollectionAssert.AreEqual(expectedResult, actualResult);
         }
 
+        [TestMethod]
+        public void ParseTest3()
+        {
+            CalculatorParser parser = new CalculatorParser();
+            var actualResult = parser.Parse("-5+6");
+            List<string> expectedResult = new List<string> { "-", "5", "+", "6" };
+            CollectionAssert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        public void ParseTest4()
+        {
+            CalculatorParser parser = new CalculatorParser();
+            var actualResult = parser.Parse("-5a+6");
+            List<string> expectedResult = new List<string> { "-", "5", "a", "+", "6" };
+            CollectionAssert.AreEqual(expectedResult, actualResult);
+        }
+
     }
 }
